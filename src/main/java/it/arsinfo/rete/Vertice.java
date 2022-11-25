@@ -1,11 +1,26 @@
 package it.arsinfo.rete;
 
 public class Vertice {
-    private final int id;
-    private String name;
 
-    public Vertice(int id) {
+    private final int id;
+    private final String name;
+
+    private int collegamenti = 0;
+    private int costo = 0;
+
+    public int getDijkstra() {
+        return dijkstra;
+    }
+
+    public void setDijkstra(int dijkstra) {
+        this.dijkstra = dijkstra;
+    }
+
+    private int dijkstra = -1;
+
+    Vertice(int id, String name) {
         this.id = id;
+        this.name= name;
     }
 
     public int getId() {
@@ -16,9 +31,6 @@ public class Vertice {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -30,8 +42,44 @@ public class Vertice {
         return id == vertice.id;
     }
 
+    public int getNumeroCollegamenti() {
+        return collegamenti;
+    }
+
+    public void aggiungiCollegamento() {
+        collegamenti++;
+    }
+
+    public int getCosto() {
+        return costo;
+    }
+
+    public void aggiungiCosto(int costo) {
+        this.costo += costo;
+    }
+
+    public float getPeso() {
+        if (collegamenti == 0 )
+            return Float.parseFloat("10000000000.0");
+        if (costo == 0)
+            return Float.parseFloat("0.0");
+        return (float) costo/collegamenti;
+    }
+
     @Override
     public int hashCode() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Vertice{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", collegamenti=" + collegamenti +
+                ", costo=" + costo +
+                ", peso=" + getPeso() +
+                ", dijkstra=" + getDijkstra() +
+                '}';
     }
 }

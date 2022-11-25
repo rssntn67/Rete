@@ -1,5 +1,7 @@
 package it.arsinfo.rete;
 
+import java.util.Objects;
+
 public class Collegamento {
     private final int costo;
     private final Vertice A;
@@ -24,14 +26,23 @@ public class Collegamento {
     }
 
     @Override
+    public String toString() {
+        return "Collegamento{" +
+                "costo=" + costo +
+                ", A=" + A +
+                ", B=" + B +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Collegamento that = (Collegamento) o;
 
-        if (A != null ? !A.equals(that.A) : that.A != null) return false;
-        return B != null ? B.equals(that.B) : that.B == null;
+        if (!Objects.equals(A, that.A)) return false;
+        return Objects.equals(B, that.B);
     }
 
     @Override
