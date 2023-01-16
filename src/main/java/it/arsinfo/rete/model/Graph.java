@@ -1,4 +1,4 @@
-package it.arsinfo.rete;
+package it.arsinfo.rete.model;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,9 +29,10 @@ public class Graph {
         }
         return null;
     }
+
     public Path getPath(Node from, Node to) {
         computeDijkstra(to);
-        Path path = new Path();
+        Path path = new Path(this);
         Node child = from;
         //no connection
         if (from.getParent() == null) {

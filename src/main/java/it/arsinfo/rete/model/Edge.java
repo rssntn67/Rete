@@ -1,4 +1,4 @@
-package it.arsinfo.rete;
+package it.arsinfo.rete.model;
 
 public class Edge {
     private final Integer weight;

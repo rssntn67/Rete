@@ -1,4 +1,4 @@
-package it.arsinfo.rete;
+package it.arsinfo.rete.model;
 
 public class Node {
 
@@ -30,7 +30,7 @@ public class Node {
         this.dijkstra = dijkstra;
     }
 
-    Node(int id, String name) {
+    public Node(int id, String name) {
         this.id = id;
         this.name= name;
     }

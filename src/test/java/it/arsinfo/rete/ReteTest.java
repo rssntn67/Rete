@@ -3,6 +3,11 @@ package it.arsinfo.rete;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import it.arsinfo.rete.builder.GraphBuilder;
+import it.arsinfo.rete.model.Graph;
+import it.arsinfo.rete.model.Node;
+import it.arsinfo.rete.model.Path;
+
 public class ReteTest {
 
     @Test

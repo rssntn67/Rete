@@ -1,11 +1,18 @@
-package it.arsinfo.rete;
+package it.arsinfo.rete.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Path {
+/*
+ * a Path is a Walk for which a node has single touch
+ */
+public class Path extends Walk {
 
     private final List<Node> path = new ArrayList<>();
+
+    public Path(Graph graph) {
+        super(graph);
+    }
 
     public void add(Node node) {
         path.add(node);

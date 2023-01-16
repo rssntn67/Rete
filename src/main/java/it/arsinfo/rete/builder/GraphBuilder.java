@@ -1,7 +1,11 @@
-package it.arsinfo.rete;
+package it.arsinfo.rete.builder;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import it.arsinfo.rete.model.Edge;
+import it.arsinfo.rete.model.Graph;
+import it.arsinfo.rete.model.Node;
 
 public class GraphBuilder {
     private final NodeBuilder verticeBuilder= new NodeBuilder();
@@ -49,4 +53,53 @@ public class GraphBuilder {
     }
 
 
+    public static class NodeBuilder {
+        private int id;
+        private String name;
+
+        public NodeBuilder setId(int id) {
+            this.id = id;
+            return this;
+        }
+
+        public NodeBuilder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Node createVertice() {
+            return new Node(id, name);
+        }
+    }
+
+    public static class EdgeBuilder {
+        private Integer weight;
+        private Node from;
+        private Node to;
+        private boolean directed = true;
+
+        public EdgeBuilder setDirected(boolean directed) {
+            this.directed = directed;
+            return this;
+        }
+
+        public EdgeBuilder setWeight(int weight) {
+            this.weight = weight;
+            return this;
+        }
+
+        public EdgeBuilder setFrom(Node from) {
+            this.from = from;
+            return this;
+        }
+
+        public EdgeBuilder setTo(Node to) {
+            this.to = to;
+            return this;
+        }
+
+        public Edge createEdge() {
+            return new Edge(weight, from, to, directed);
+        }
+    }
 }
